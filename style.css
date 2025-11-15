@@ -1538,7 +1538,7 @@ body.light-theme span {
 @media only screen and (max-width: 576px) {
     :root {
         --fs-xl: 2.2rem;/* Retain variable definition, but override h1 directly */
-        --fs-l: 1.1rem;
+        --fs-l: 0.8rem;
         --fs-m: 1rem;
         --spacing-xl: 3rem;
         --spacing-l: 2rem;
@@ -1547,9 +1547,9 @@ body.light-theme span {
     /* 🌟 ADD THIS NEW BLOCK 🌟 */
     h1 {
         /* This smaller font size should ensure the long name fits without clipping */
-        font-size: 1.1rem; 
+        font-size: 0.8rem; 
     }
-    /* -------------------------- */        --fs-l: 1.1rem;
+    /* -------------------------- */        --fs-l: 0.8rem;
         --fs-m: 1rem;
         --spacing-xl: 3rem;
         --spacing-l: 2rem;
