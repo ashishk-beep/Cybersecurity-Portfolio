@@ -36,51 +36,30 @@ navLinksItems.forEach(item => {
     });
 });
 
-// ⭐ THEME TOGGLE FUNCTIONALITY (FIXED) ⭐
+// ⭐ THEME TOGGLE FUNCTIONALITY (FINAL FIX) ⭐
 themeToggle.addEventListener('click', () => {
-    // 💡 FIX: Toggling the class will switch the theme
-    // If the default is dark, adding 'light-theme' switches it to light.
+    // 1. Toggle the 'light-theme' class. This is the only action needed here.
+    // CSS will handle all visual and icon changes based on this class's presence.
     document.body.classList.toggle('light-theme');
 
-    // Toggle icons based on the new state
-    if (document.body.classList.contains('light-theme')) {
-        // If light-theme is active, show the Moon (to switch back to dark)
-        moonIcon.style.display = 'block';
-        sunIcon.style.display = 'none';
-        // Save 'light'
-        localStorage.setItem('theme', 'light');
-    } else {
-        // If light-theme is NOT active (i.e., we are in dark theme), show the Sun (to switch to light)
-        moonIcon.style.display = 'none';
-        sunIcon.style.display = 'block';
-        // Save 'dark'
-        localStorage.setItem('theme', 'dark');
-    }
+    // 2. Save theme preference to localStorage
+    const theme = document.body.classList.contains('light-theme') ? 'light' : 'dark';
+    localStorage.setItem('theme', theme);
+
+    // NOTE: We rely entirely on the CSS for icon visibility now.
 });
 
-
-// ⭐ LOAD SAVED THEME PREFERENCE (FIXED) ⭐
+// ⭐ LOAD SAVED THEME PREFERENCE (FINAL FIX) ⭐
 document.addEventListener('DOMContentLoaded', () => {
     const savedTheme = localStorage.getItem('theme');
 
     // Load theme preference
     if (savedTheme === 'light') {
-        // If saved theme is 'light', ensure the class is added
+        // If saved theme is 'light', ensure the class is added.
         document.body.classList.add('light-theme');
-        // Set icons for light theme: Show Moon (switch to dark)
-        if (moonIcon && sunIcon) {
-            moonIcon.style.display = 'block';
-            sunIcon.style.display = 'none';
-        }
     } else {
-        // If saved theme is 'dark' or no theme is saved (default dark)
-        // Ensure the class is NOT added (default state)
+        // If saved theme is 'dark' or no theme is saved (default dark), ensure the class is removed.
         document.body.classList.remove('light-theme');
-        // Set icons for dark theme: Show Sun (switch to light)
-        if (moonIcon && sunIcon) {
-            moonIcon.style.display = 'none';
-            sunIcon.style.display = 'block';
-        }
     }
 
     // Add animations with delay for elements (Animation on Scroll)
