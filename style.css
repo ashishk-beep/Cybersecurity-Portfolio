@@ -289,10 +289,11 @@ nav {
     display: flex;
     align-items: center;
     padding-top: 80px;
-    background: /* Layer 1: Existing Radial Gradient (to maintain the dark glow effect) */
-        radial-gradient(circle at 10% 20%, rgba(0, 238, 255, 0.08) 0%, rgba(0, 0, 0, 1) 80%),
-        /* Layer 2: Your Image */Background Image.jpeg
-       ('Background Image/Background Image.JPEG');
+    background: /* Layer 1: Existing Radial Gradient (must be first) */
+        radial-gradient(circle at 10% 20%, rgba(0, 238, 255, 0.08) 0%, rgba(0, 0, 0, 1) 80%),
+        
+        /* 🌟 Layer 2: Corrected URL with URL Encoding (%20) 🌟 */
+        url('Background%20Image/Background%20Image.jpeg');
     position: relative;
     overflow: hidden;
 
