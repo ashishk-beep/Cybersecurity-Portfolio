@@ -289,42 +289,23 @@ nav {
     display: flex;
     align-items: center;
     padding-top: 80px;
+    background: radial-gradient(circle at 10% 20%, rgba(0, 238, 255, 0.08) 0%, rgba(0, 0, 0, 1) 80%);
     position: relative;
     overflow: hidden;
-    /* REMOVED: Background properties are now in .cyber-background-1 */
 }
 
-/* ====================================
-   Cyber Background 1: CYBERNETIC DEFENSE (THE NEW BACKGROUND)
-   ==================================== */
-.cyber-background-1 {
-    /* *** ADDED BASE BACKGROUND PROPERTIES HERE *** */
-    /* Deep blue-black base color */
-    background-color: #0d1a26; 
-    /* IMPORTANT: Replace URL with your preferred circuit board/digital image path */
-    background-image: url('https://raw.githubusercontent.com/yoloxer/yoloxer/main/green-circuit.png'); 
-    background-size: cover;
-    background-attachment: fixed;
-    background-position: center;
-    /* ******************************************* */
-
-    position: relative;
-}
-
-/* Gradient and Blur Overlay for the Cyberpunk Glow */
-.cyber-background-1::before {
+.hero::before {
     content: '';
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    /* Gradient overlay for green/blue glow and dark contrast */
-    background: linear-gradient(45deg, rgba(0, 255, 100, 0.1), rgba(0, 100, 255, 0.1), rgba(0, 0, 0, 0.6));
-    backdrop-filter: blur(2px); 
-    z-index: 1; 
-    background-image: none; 
-    background-size: initial;
+    background-image:
+        linear-gradient(rgba(0, 238, 255, 0.05) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(0, 238, 255, 0.05) 1px, transparent 1px);
+    background-size: 40px 40px;
+    z-index: 1;
 }
 
 .hero-content {
@@ -333,10 +314,8 @@ nav {
     align-items: center;
     gap: var(--spacing-l);
     position: relative;
-    z-index: 5;
+    z-index: 2;
 }
-
-/* The rest of the Hero Text/Image styles remain the same... */
 
 .hero-text {
     flex: 1;
@@ -1537,19 +1516,8 @@ body.light-theme span {
 /* Extra small devices (small mobile phones, up to 576px) */
 @media only screen and (max-width: 576px) {
     :root {
-        --fs-xl: 2.2rem;/* Retain variable definition, but override h1 directly */
-        --fs-l: 0.8rem;
-        --fs-m: 1rem;
-        --spacing-xl: 3rem;
-        --spacing-l: 2rem;
-    }
-
-    /* 🌟 ADD THIS NEW BLOCK 🌟 */
-    h1 {
-        /* This smaller font size should ensure the long name fits without clipping */
-        font-size: 0.8rem; 
-    }
-    /* -------------------------- */        --fs-l: 0.8rem;
+        --fs-xl: 2.2rem;
+        --fs-l: 1.6rem;
         --fs-m: 1rem;
         --spacing-xl: 3rem;
         --spacing-l: 2rem;
