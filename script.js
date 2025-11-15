@@ -5,7 +5,7 @@ const hamburger = document.querySelector('.hamburger');
 const navLinksItems = document.querySelectorAll('.nav-links li');
 const themeToggle = document.querySelector('.theme-toggle');
 // Select icons using their Font Awesome classes
-const moonIcon = document.querySelector('.fa-moon'); 
+const moonIcon = document.querySelector('.fa-moon');
 const sunIcon = document.querySelector('.fa-sun');
 const contactForm = document.getElementById('contact-form');
 
@@ -36,41 +36,50 @@ navLinksItems.forEach(item => {
     });
 });
 
-// Theme toggle functionality
+// ⭐ THEME TOGGLE FUNCTIONALITY (FIXED) ⭐
 themeToggle.addEventListener('click', () => {
+    // 💡 FIX: Toggling the class will switch the theme
+    // If the default is dark, adding 'light-theme' switches it to light.
     document.body.classList.toggle('light-theme');
 
-    // Toggle icons
+    // Toggle icons based on the new state
     if (document.body.classList.contains('light-theme')) {
-        moonIcon.style.display = 'none';
-        sunIcon.style.display = 'block';
-    } else {
+        // If light-theme is active, show the Moon (to switch back to dark)
         moonIcon.style.display = 'block';
         sunIcon.style.display = 'none';
+        // Save 'light'
+        localStorage.setItem('theme', 'light');
+    } else {
+        // If light-theme is NOT active (i.e., we are in dark theme), show the Sun (to switch to light)
+        moonIcon.style.display = 'none';
+        sunIcon.style.display = 'block';
+        // Save 'dark'
+        localStorage.setItem('theme', 'dark');
     }
-
-    // Save theme preference to localStorage
-    const theme = document.body.classList.contains('light-theme') ? 'light' : 'dark';
-    localStorage.setItem('theme', theme);
 });
 
-// Load saved theme preference and initialize animations
+
+// ⭐ LOAD SAVED THEME PREFERENCE (FIXED) ⭐
 document.addEventListener('DOMContentLoaded', () => {
     const savedTheme = localStorage.getItem('theme');
 
     // Load theme preference
     if (savedTheme === 'light') {
+        // If saved theme is 'light', ensure the class is added
         document.body.classList.add('light-theme');
-        // Ensure icons are toggled correctly on load
+        // Set icons for light theme: Show Moon (switch to dark)
+        if (moonIcon && sunIcon) {
+            moonIcon.style.display = 'block';
+            sunIcon.style.display = 'none';
+        }
+    } else {
+        // If saved theme is 'dark' or no theme is saved (default dark)
+        // Ensure the class is NOT added (default state)
+        document.body.classList.remove('light-theme');
+        // Set icons for dark theme: Show Sun (switch to light)
         if (moonIcon && sunIcon) {
             moonIcon.style.display = 'none';
             sunIcon.style.display = 'block';
-        }
-    } else {
-         // Ensure icons are correctly set for the default dark theme
-         if (moonIcon && sunIcon) {
-            moonIcon.style.display = 'block';
-            sunIcon.style.display = 'none';
         }
     }
 
@@ -85,7 +94,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     if (entry.isIntersecting) {
                         entry.target.classList.add('section-animate');
                         // Optional: Unobserve after animating to save resources
-                        // observer.unobserve(entry.target); 
+                        // observer.unobserve(entry.target);
                     }
                 });
             }, { threshold: 0.1 }); // Trigger when 10% of the section is visible
@@ -157,7 +166,7 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         if (targetElement) {
             window.scrollTo({
                 // Subtract header height from target's top position
-                top: targetElement.offsetTop - headerHeight, 
+                top: targetElement.offsetTop - headerHeight,
                 behavior: 'smooth'
             });
         }
@@ -168,7 +177,7 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
 const binaryElement = document.querySelector('.binary');
 if (binaryElement) {
     // Check if the element has content defined in HTML, otherwise use a default
-    const originalText = binaryElement.dataset.text || binaryElement.innerText || '01100101 01111000 01100001 01101101 01110000 01101100 01100101'; 
+    const originalText = binaryElement.dataset.text || binaryElement.innerText || '01100101 01111000 01100001 01101101 01110000 01101100 01100101';
     binaryElement.innerText = ''; // Clear text content
 
     let i = 0;
