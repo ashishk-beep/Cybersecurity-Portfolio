@@ -1484,7 +1484,7 @@ body.light-theme span {
 /* Small devices (mobile phones, up to 768px) */
 @media only screen and (max-width: 768px) {
     :root {
-        --fs-xl: 2.2rem;
+        --fs-xl: 2.5rem;
         --fs-l: 1.8rem;
         --fs-m: 1.1rem;
         --fs-s: 1rem;
@@ -1547,9 +1547,9 @@ body.light-theme span {
     /* 🌟 ADD THIS NEW BLOCK 🌟 */
     h1 {
         /* This smaller font size should ensure the long name fits without clipping */
-        font-size: 1.6rem; 
+        font-size: 1.5rem; 
     }
-    /* -------------------------- */        --fs-l: 1.6rem;
+    /* -------------------------- */        --fs-l: 1.5rem;
         --fs-m: 1rem;
         --spacing-xl: 3rem;
         --spacing-l: 2rem;
