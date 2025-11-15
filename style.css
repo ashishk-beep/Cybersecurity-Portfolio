@@ -291,11 +291,11 @@ nav {
     padding-top: 80px;
     background: /* Layer 1: Existing Radial Gradient (to maintain the dark glow effect) */
         radial-gradient(circle at 10% 20%, rgba(0, 238, 255, 0.08) 0%, rgba(0, 0, 0, 1) 80%),
-        /* Layer 2: Your Image */https://github.com/ashishk-beep/Cybersecurity-Portfolio/blob/2a84583e5eeeea30f3270caad1ca1205d9168cac/Background-Images
-       ('Background-Images/Background Image.JPEG');
+        /* Layer 2: Your Image */Background Image.jpeg
+       ('Background Image/Background Image.JPEG');
     position: relative;
     overflow: hidden;
-/* 🌟 ADD THESE TWO PROPERTIES TO CONTROL THE IMAGE 🌟 */
+
     background-size: cover; 
     background-position: center;
 }
