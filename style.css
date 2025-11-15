@@ -1279,14 +1279,12 @@ footer {
     display: none;    /* Hide Moon */
 }
 
-
 /* ====================================
-   LIGHT THEME STYLES (.light-theme class)
+   LIGHT THEME STYLES (FINAL OVERRIDE)
    ==================================== */
 
-/* 1. Define Light Mode Colors */
-.light-theme {
-    /* Base Light Colors */
+:root {
+    /* Define Light Mode Colors (these should match your variable names) */
     --light-primary: #ffffff;
     --light-secondary: #f0f0f0;
     --light-tertiary: #e0e0e0;
@@ -1294,8 +1292,10 @@ footer {
     --light-text-secondary: #555555;
     --light-border-color: #cccccc;
     --light-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
 
-    /* Override ALL Dark Mode variables with Light Mode values */
+body.light-theme {
+    /* Force base colors using the root variables */
     --primary-dark: var(--light-primary);
     --secondary-dark: var(--light-secondary);
     --tertiary-dark: var(--light-tertiary);
@@ -1303,47 +1303,68 @@ footer {
     --text-secondary: var(--light-text-secondary);
     --border-color: var(--light-border-color);
     --box-shadow: var(--light-shadow);
-    --glow-effect: none; /* Remove dark mode specific glow */
+    --glow-effect: none;
 
-    /* Change accent color glow in light mode */
+    /* OPTIONAL: Adjust ACCENT colors for better contrast on light background */
     --accent-color: #0088cc;
     --accent-hover: #005599;
     --accent-color-2: #00b347;
     --accent-color-3: #cc0077;
+    
+    background-color: var(--primary-dark) !important;
+    color: var(--text-primary) !important;
 }
 
-/* 2. Specific Element Overrides (If they don't use variables) */
-
-/* Header & Navigation */
-.light-theme header {
-    background-color: rgba(255, 255, 255, 0.9);
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-}
-.light-theme .header-scroll {
-    background-color: var(--secondary-dark);
-}
-
-/* Inputs, Timelines, etc. */
-.light-theme .form-group input, 
-.light-theme .form-group textarea {
-    background-color: var(--primary-dark);
-    border: 1px solid var(--border-color);
-    color: var(--text-primary);
+/* Force Light Background on All Sections/Containers */
+body.light-theme section,
+body.light-theme header,
+body.light-theme footer,
+body.light-theme .header-scroll,
+body.light-theme .about,
+body.light-theme .projects,
+body.light-theme .education,
+body.light-theme .achievements,
+body.light-theme .article {
+    background-color: var(--secondary-dark) !important;
 }
 
-
-/* 3. Icon State Toggle (Crucial Fix) */
-/* In Light Mode, we show the Moon icon (inviting switch to Dark) and hide the Sun. */
-.light-theme .theme-toggle .fa-moon {
-    display: inline-block; /* Show Moon */
+/* Force Light Background on All Module Cards/Boxes */
+body.light-theme .contact-info,
+body.light-theme .project-card,
+body.light-theme .skill-item,
+body.light-theme .timeline-content,
+body.light-theme .certification-card,
+body.light-theme .achievement-item,
+body.light-theme .training-item,
+body.light-theme .article-card,
+body.light-theme .contact-info-container,
+body.light-theme .contact-form-container {
+    background-color: var(--tertiary-dark) !important;
+    box-shadow: var(--box-shadow) !important;
+}
+/* Force Light Icons & State (CRUCIAL) */
+.theme-toggle .fa-sun {
+    display: inline-block; /* Default Dark Mode: Show Sun */
+}
+.theme-toggle .fa-moon {
+    display: none;    /* Default Dark Mode: Hide Moon */
 }
 
-.light-theme .theme-toggle .fa-sun {
-    display: none; /* Hide Sun */
+body.light-theme .theme-toggle .fa-sun {
+    display: none !important; /* Light Mode: Hide Sun */
+}
+body.light-theme .theme-toggle .fa-moon {
+    display: inline-block !important; /* Light Mode: Show Moon */
 }
 
-.light-theme .theme-toggle i {
-    color: var(--accent-color); /* Maintain accent color */
+/* Ensure Text remains readable */
+body.light-theme h1,
+body.light-theme h2,
+body.light-theme h3,
+body.light-theme h4,
+body.light-theme p,
+body.light-theme span {
+    color: var(--text-primary) !important;
 }
 
 /* ====================
