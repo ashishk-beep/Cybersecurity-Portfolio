@@ -289,17 +289,24 @@ nav {
     display: flex;
     align-items: center;
     padding-top: 80px;
-    background: /* Layer 1: Existing Radial Gradient (Retains the dark glow effect) */
-        radial-gradient(circle at 10% 20%, rgba(0, 238, 255, 0.08) 0%, rgba(0, 0, 0, 1) 80%),
-        
-        /* 🌟 FINAL PATH STRUCTURE: Folder/File.jpeg 🌟 */
-        url('background-images/background-images.jpeg');
-   
-    position: relative;
-    overflow: hidden;
+    background: /* Layer 1: Subtle Animated Scanlines/Noise for a retro feel */
+        repeating-linear-gradient(
+            to bottom,
+            transparent 0,
+            rgba(255, 255, 255, 0.01) 1px, /* Very subtle white line */
+            transparent 2px
+        ),
+        /* Layer 2: Enhanced Radial Gradient (Brighter glow, quicker fall-off) */
+        radial-gradient(circle at 10% 20%, 
+            rgba(0, 238, 255, 0.15) 0%, /* Increased glow intensity */
+            rgba(0, 0, 0, 1) 90%        /* Faster drop to black for higher contrast */
+        ),
+        /* Layer 3: Solid Black Base (Uses your defined variable) */
+        var(--primary-dark); 
 
-    background-size: cover; 
-    background-position: center;
+    /* Combined sizing for all three background layers */
+    background-size: 100% 2px, cover, cover; 
+    background-position: top left, center, center;
 }
 
 .hero::before {
