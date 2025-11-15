@@ -1,4 +1,3 @@
-# Cybersecurity-Portfolio
 # 🛡️ Ashish Kumar Bishnoi: Cybersecurity & Digital Forensics Specialist
 
 ## ⚡ Executive Summary
