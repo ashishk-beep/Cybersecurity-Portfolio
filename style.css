@@ -285,28 +285,30 @@ nav {
    Hero Section
    ==================== */
 .hero {
-min-height: 100vh;
+    min-height: 100vh;
     display: flex;
     align-items: center;
     padding-top: 80px;
     position: relative;
     overflow: hidden;
-    /* The base background is now handled by the .cyber-background-1 class */
+    /* REMOVED: Background properties are now in .cyber-background-1 */
 }
 
 /* ====================================
-   Cyber Background 1: CYBERNETIC DEFENSE
-   (Applied when HTML uses class="hero cyber-background-1")
+   Cyber Background 1: CYBERNETIC DEFENSE (THE NEW BACKGROUND)
    ==================================== */
 .cyber-background-1 {
-    position: relative;
+    /* *** ADDED BASE BACKGROUND PROPERTIES HERE *** */
     /* Deep blue-black base color */
     background-color: #0d1a26; 
     /* IMPORTANT: Replace URL with your preferred circuit board/digital image path */
     background-image: url('https://raw.githubusercontent.com/yoloxer/yoloxer/main/green-circuit.png'); 
     background-size: cover;
-    background-attachment: fixed; /* Keeps the background static while scrolling */
+    background-attachment: fixed;
     background-position: center;
+    /* ******************************************* */
+
+    position: relative;
 }
 
 /* Gradient and Blur Overlay for the Cyberpunk Glow */
@@ -321,7 +323,6 @@ min-height: 100vh;
     background: linear-gradient(45deg, rgba(0, 255, 100, 0.1), rgba(0, 100, 255, 0.1), rgba(0, 0, 0, 0.6));
     backdrop-filter: blur(2px); 
     z-index: 1; 
-    /* The old grid background image styles are removed from here */
     background-image: none; 
     background-size: initial;
 }
@@ -332,8 +333,10 @@ min-height: 100vh;
     align-items: center;
     gap: var(--spacing-l);
     position: relative;
-    z-index: 5; /* Ensures content is above the overlay (z-index: 1) */
+    z-index: 5;
 }
+
+/* The rest of the Hero Text/Image styles remain the same... */
 
 .hero-text {
     flex: 1;
